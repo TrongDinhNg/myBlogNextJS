@@ -18,6 +18,10 @@ import MailIcon from '@mui/icons-material/Mail';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
 
+
+interface AppHeaderProps {
+  className?: string;
+}
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
   borderRadius: theme.shape.borderRadius,
@@ -57,8 +61,9 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     },
   },
 }));
-
-export default function PrimarySearchAppBar() {
+const AppHeader: React.FC<AppHeaderProps> = ({ className }) => {
+ 
+  // Your component logic here
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] =
     React.useState<null | HTMLElement>(null);
@@ -157,8 +162,8 @@ export default function PrimarySearchAppBar() {
       </MenuItem>
     </Menu>
   );
-
-  return (
+  return <header className={className}>
+    {/* Header Content */}
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
         <Toolbar>
@@ -233,5 +238,7 @@ export default function PrimarySearchAppBar() {
       {renderMobileMenu}
       {renderMenu}
     </Box>
-  );
-}
+    </header>;
+};
+
+export default AppHeader;

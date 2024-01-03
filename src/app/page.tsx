@@ -1,12 +1,25 @@
-import Image from 'next/image'
-import styles from './page.module.css'
-import Link from 'next/link'
-export default function Home() {
-  return (
-   <>
+import Link from "next/link";
 
-   return <Link href="/admin">admin</Link>
- 
-   </>
-  )
+import TrendNew from "@/components/sections/trendNew";
+export default function Home() {
+    return (
+        <>
+            <Link href="/admin">admin</Link>
+            <div
+                style={{
+                    color: "red",
+                    width: "200px",
+                    height: "100px",
+                    border: "1px solid red",
+                    margin: "10px",
+                }}
+            >
+                test
+            </div>
+            <div>
+                <h2>Trend New</h2>
+                <TrendNew />
+            </div>
+        </>
+    );
 }
